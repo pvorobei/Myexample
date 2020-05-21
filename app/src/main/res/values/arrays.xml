@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="one_kategory_array">
+        <item>Элемент_1</item>
+        <item>Элемент_2</item>
+        <item>Элемент_3</item>
+        <item>Элемент_4</item>
+    </string-array>
+    <string-array name="two_kategory_array">
+        <item>Элемент_1.2</item>
+        <item>Элемент_2.2</item>
+        <item>Элемент_3.2</item>
+        <item>Элемент_4.2</item>
+    </string-array>
+    <string-array name="thry_kategory_array">
+        <item>Элемент_1.3</item>
+        <item>Элемент_2.3</item>
+        <item>Элемент_3.3</item>
+        <item>Элемент_4.3</item>
+    </string-array>
+    <string-array name="other_array">
+        <item>Прочее_1</item>
+        <item>Прочее_2</item>
+        <item>Прочее_3</item>
+        <item>Прочее_4</item>
+    </string-array>
+</resources>
