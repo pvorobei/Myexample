@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ListView list;                       //Список элементов (листВью)
     private  String [] array_1;                     //Массив строк, который в arrays
     private ArrayAdapter<String> adapter_1;
+    private int category;
     Toolbar toolbar;
 
     @Override
@@ -55,7 +56,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, TextContentActivity.class);
+                Intent intent = new Intent(MainActivity.this, TextContentActivity.class); //Сообщение системе о том что мы из этого активити хотим перейти в другое
+                intent.putExtra("category", category);
+                intent.putExtra("element", position);
                 startActivity(intent);
 
             }
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter_1.clear();                                                                   //очищаем адаптер
             adapter_1.addAll(array_1);                                                           //Добавляем массив строк
             adapter_1.notifyDataSetChanged();                                                    //Говорим адаптеру, что произошли изменения
+            category = 1;
             Toast.makeText(this, "Вход в категорию 2", Toast.LENGTH_SHORT).show();  //просто уведомление
         }
         else  if (id == R.id.id_one_kat){
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter_1.clear();
             adapter_1.addAll(array_1);
             adapter_1.notifyDataSetChanged();
+            category = 0;
             Toast.makeText(this, "Вход в категорию 1", Toast.LENGTH_SHORT).show();
         }
         else if (id == R.id.id_thry_kat){
@@ -95,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter_1.clear();
             adapter_1.addAll(array_1);
             adapter_1.notifyDataSetChanged();
+            category = 2;
             Toast.makeText(this, "Вход в категорию 3", Toast.LENGTH_SHORT).show();
         }
                 else if (id == R.id.other){
@@ -103,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter_1.clear();
             adapter_1.addAll(array_1);
             adapter_1.notifyDataSetChanged();
+            category = 3;
             Toast.makeText(this, "Вход в other ", Toast.LENGTH_SHORT).show();
         }
         drawer.closeDrawer(GravityCompat.START);
