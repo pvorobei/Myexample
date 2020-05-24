@@ -1,6 +1,7 @@
 package com.example.mydirectory;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.Image;
 //import android.media.Image;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class TextContentActivity extends AppCompatActivity {
     private ImageView ImageContent;
     private int category = 0;
     private  int element = 0;
+    private Typeface face_one;                                                                      //переменная для хранения шрифта
     private  int [] array_one = {R.string.text_one_one, R.string.text_two_one, R.string.text_three_one, R.string.text_four_one};
     private  int [] array_two = {R.string.text_one_two, R.string.text_two_two, R.string.text_three_two,R.string.text_four_two};
     private  int [] array_three = {R.string.text_one_three, R.string.text_two_three, R.string.text_three_three,R.string.text_four_three};
@@ -24,8 +26,7 @@ public class TextContentActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_content);
-        text_content_mine = findViewById(R.id.TextContentOne);           //в фале Text_content.xml ищем и присваеваем переменной конкретный текст вью
-        ImageContent = findViewById(R.id.image_content);                   //тоже ис имейджвью
+        init();                                                 //функция инициализации текста и картинок
         resiveIntent();
     }
     private void  resiveIntent(){
@@ -55,4 +56,13 @@ public class TextContentActivity extends AppCompatActivity {
         }
     }
     }
+    private  void init()                                        //функция инициализации текста, картинок
+    {
+        text_content_mine = findViewById(R.id.TextContentOne);           //в фале Text_content.xml ищем и присваеваем переменной конкретный текст вью
+        ImageContent = findViewById(R.id.image_content);                   //тоже ис имейджвью
+        face_one = Typeface.createFromAsset(this.getAssets(),"fonts/comfortaa-700-normal.ttf"); //присваеваем  шрифт переменной face_one
+        text_content_mine.setTypeface(face_one);                                                      //меняем шрифт текста
+    }
 }
+
+/*Для добавления шрифта - качаем шрифт, создаем папку assets, а вней папку fonts, в которую копируем шрифт*/
